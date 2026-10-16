@@ -1,0 +1,9 @@
+{
+	"id": "tomorrows-daily-note",
+	"name": "Tomorrow's Daily Note",
+	"version": "1.0.0",
+	"minAppVersion": "1.4.0",
+	"description": "Adds a sidebar ribbon item that creates and opens tomorrow's daily note, using your Daily Notes folder, date format and template.",
+	"author": "stefanm8",
+	"isDesktopOnly": false
+}

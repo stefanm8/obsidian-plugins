@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tomorrows-daily-note:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: tomorrows-daily-note
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tomorrows-daily-note/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tomorrows-daily-note
+          path: |
+            tomorrows-daily-note/main.js
+            tomorrows-daily-note/manifest.json
+          if-no-files-found: error
